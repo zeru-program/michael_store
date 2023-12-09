@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <style type="text/css" media="all">
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+            body {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-image: url("bg.jpg");
+                background: linear-gradient(
+                        rgba(0, 0, 0, 0.6),
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("bg.jpg");
+                background-size: cover;
+                /*background: #12578e;*/
+                font-family: "Poppins", Sans-Serif;
+            }
+            @keyframes pudar {
+                from {
+                    opacity: 0.1;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: transparant;
+                border: 2px solid white;
+                border-radius: 5px;
+                height: 50%;
+                width: 50%;
+                padding: 50px;
+                backdrop-filter: blur(10px);
+                background-color: rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                ); /* Transparent or see-through background */
+                animation: pudar 1s;
+            }
+            form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .judul {
+                color: white;
+                font-weight: 800;
+                z-index: 9999;
+                text-shadow: 0 3px 2px #282828b4;
+                position: fixed;
+                top: 10%;
+            }
+            .usn {
+                color: #fff;
+                font-weight: 500;
+            }
+            .conUs {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .conPs {
+                display: flex;
+                flex-direction: column;
+            }
+            input[type="text"]::placeholder {
+                color: black;
+            }
+            input[type="password"]::placeholder {
+                color: black;
+            }
+            input[type="text"] {
+                border-radius: 3px;
+                background: #fff;
+                width: 200px;
+                height: 30px;
+                color: black;
+                border: none;
+                padding: 1px 5px;
+            }
+            input[type="password"] {
+                padding: 1px 5px;
+                background: #fff;
+                border: none;
+                color: black;
+                border-radius: 3px;
+                width: 200px;
+                height: 30px;
+            }
+            /*  hr {
+                width: 200px;
+            }*/
+            .logo {
+                width: 50px;
+                border: 2px double white;
+                background: #fff;
+                border-radius: 50%;
+                position: fixed;
+                top: 20%;
+            }
+            .btn-submit:active {
+                transform: scale(0.9);
+                background: #fff;
+                color: black;
+                transition: 0.4s;
+            }
+            .btn-submit {
+                transition: 0.4s;
+                border: none;
+                background: #28b6d5;
+                color: white;
+                font-weight: 800;
+                width: 100px;
+                height: 25px;
+                border-radius: 5px;
+            }
+            .desk {
+                color: white;
+            }
+            .conDesk {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+            .anchor {
+                color: #6289ee;
+                font-weight: 800;
+            }
+            #text-kosong {
+              display: none;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              text-align: center;
+              position: fixed;
+              width: 70%;
+              height: 50%;
+              background: #fff;
+              color: #e95b5b;
+              border-radius: 5px;
+              text-shadow: 0 1px 2px red;
+            }
+            #text-kosong p {
+              padding: 0 10px 0 10px;
+            }
+            #text-salah {
+              display: none;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              text-align: center;
+              position: fixed;
+              width: 70%;
+              height: 50%;
+              background: #fff;
+              color: #e95b5b;
+              border-radius: 5px;
+              text-shadow: 0 1px 2px red;
+            }
+            #text-salah p {
+              padding: 0 10px 0 10px;
+            }
+            svg {
+              z-index: 9999;
+              color: black;
+              position: fixed;
+            }
+            @media screen and (max-width: 368px) {
+                body {
+                    background-size: cover;
+                }
+                .container {
+                    width: 40%;
+                    height: 55%;
+                }
+                .logo {
+                    width: 30px;
+                }
+                input[type="text"] {
+                    height: 15px;
+                }
+                input[type="password"] {
+                    height: 15px;
+                }
+                form {
+                    margin-top: 30px;
+                }
+                .desk {
+                    font-size: 0.4em;
+                }
+                .conDesk {
+                    position: fixed;
+                    bottom: 2%;
+                }
+            }
+            @media screen and (min-width: 368px) {
+                body {
+                    background-size: cover;
+                }
+                .container {
+                    width: 55%;
+                    height: 60%;
+                }
+                .judul {
+                    font-size: 1.5em;
+                }
+                .desk {
+                    font-size: 0.8em;
+                }
+                .conDesk {
+                    position: fixed;
+                    bottom: 5%;
+                }
+                svg {
+                  width: 50px;
+                  right: 15%;
+                  margin-top: 8%;
+                }
+            }
+            @media screen and (min-width: 768px) {
+                body {
+                    background-size: cover;
+                }
+                .container {
+                    backdrop-filter: blur(15px);
+                    width: 40%;
+                    height: 50%;
+                }
+                svg {
+                  width: 80px;
+                  right: 30%;
+                  margin-bottom: 8%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <label class="judul">Login</label>
+            <img class="logo" src="logo.png" alt="" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <form accept-charset="utf-8">
+                <div class="conUs">
+                    <label for="" class="usn">Username</label>
+                    <input
+                        type="text"
+                        placeholder="ketik disini.."
+                        value=""
+                        id="inputUser"
+                    />
+                </div>
+                <div class="conPs">
+                    <label for="" class="usn">Password</label>
+                    <input
+                        type="password"
+                        placeholder="ketik disini.."
+                        value=""
+                        id="usPs"
+                    />
+                <!--    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1.5em"
+                        viewBox="0 96 960 960"
+                        width="1.5em"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M480 556Zm0 300q-146 0-264-83T40 556q58-134 176-217t264-83q146 0 264 83t176 217q-9 20-19.5 39.5T878 633l-42-39q6-9 11-18.5t10-19.5q-53-109-154.318-174.5Q601.365 316 480 316q-121.232 0-222.616 65.5Q156 447 102 556q54 109 155.384 174.5Q358.768 796 480 796q15.469 0 30.234-1Q525 794 541 792q-1 15 1 30t6 29q-17 3-34 4t-34 1Zm0-130q-70.833 0-120.417-49.618Q310 626.765 310 555.882 310 485 359.618 435.5q49.617-49.5 120.5-49.5Q551 386 601 435.5T651 557q0 16-3 32t-10 30l-30 28q-13.184 12.258-23.592 26.129Q574 687 566 703q-19 11-40.814 17T480 726Zm.235-58Q527 668 559.5 635.265q32.5-32.736 32.5-79.5Q592 509 559.265 476.5q-32.736-32.5-79.5-32.5Q433 444 400.5 476.735q-32.5 32.736-32.5 79.5Q368 603 400.735 635.5q32.736 32.5 79.5 32.5Zm271.239 283Q688 951 644.468 906.907 600.936 862.814 600 799.959 600 769 613 740.5q13-28.5 36-49.5l102-96 101 96q23 21 35.536 48.897Q900.071 767.793 901 799q0 63-43.5 107.5T751.474 951ZM751 891q38 0 64-26.909t25-65.03q0-19.061-8-35.561T810 734l-59-56-60 56q-14 13-22.5 29.5T661 800q0 38.198 25.875 64.599Q712.75 891 751 891Zm0-107Z"
+                            onclick="shwPass()"
+                            id="offV"
+                        />
+                    </svg>-->
+                </div>
+                <br />
+                <br />
+                <button class="btn-submit" onclick="cekLog()">Login</button>
+                <br />
+                <br />
+                <div class="conDesk">
+                    <label for="" class="desk"
+                        >Forgot a password?
+                        <a href="#" class="anchor">password</a></label
+                    >
+                    <label for="" class="desk"
+                        >Not ready have a acount?
+                        <a href="#" class="anchor">Sign up</a></label
+                    >
+                </div>
+            </form>
+        </div>
+        <div id="text-kosong">
+          <p>Masukan username dengan password yang benar !</p>
+        </div>
+        <div id="text-salah">
+          <p>Username atau password salah !</p>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            var users = [
+                {
+                    username: "admin",
+                    password: "admin",
+                    redirect: "/home"
+                },
+                {
+                    username: "user2",
+                    password: "pass2",
+                    redirect: "/home"
+                }
+                // Tambahkan lebih banyak jika diperlukan
+            ];
+            
+
+            function shwPass() {
+                var x = document.getElementById("usPs");
+
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+
+            function cekLog() {
+                const enteredUser = document.getElementById("inputUser").value;
+                const enteredPass = document.getElementById("usPs").value;
+
+                // Cek jika username dan password tidak diisi
+                if (!enteredUser || !enteredPass) {
+                    document.getElementById('text-kosong').style.display = "flex";
+                    return;
+                }
+
+                // Cek apakah inputan user sesuai dengan data yang ada di array
+                var matchedUser = users.find(function (user) {
+                    return (
+                        user.username === enteredUser &&
+                        user.password === enteredPass
+                    );
+                });
+
+                if (matchedUser) {
+                    // Redirect ke halaman yang ditentukan untuk kombinasi username dan password yang benar
+                    window.location.href = matchedUser.redirect;
+                } else {
+                    document.getElementById('text-salah').style.display = "flex";}
+            }
+        </script>
+    </body>
+</html>
